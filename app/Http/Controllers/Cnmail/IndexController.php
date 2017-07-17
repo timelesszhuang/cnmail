@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use MongoDB\Driver\Query;
 
 
 class IndexController extends Controller
@@ -18,8 +19,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-//        dd(env('DB_HOST'));die;
-//        dd(config("mongodb"));
+       dd(Mongodb::MQuery('mxmanage.anhui',[]));
     }
 
     /**

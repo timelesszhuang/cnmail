@@ -16,6 +16,7 @@ class Mongodb
                 $mongo = config("mongodb");
                 $uri = "mongodb://" . $mongo["username"] . ":" . $mongo["password"] . "@" . $mongo["host"] . "/" . $mongo["authDB"];
                 $manager = new Manager($uri);
+                self::$link =$manager;
             }
             return self::$link;
         } catch (Exception $e) {

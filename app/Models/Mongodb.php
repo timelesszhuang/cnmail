@@ -13,7 +13,6 @@ class Mongodb
     {
         try {
             if(!self::$link){
-                $mongo = config("mongodb");
                 $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" .env("Monhost") . "/" . env("MonauthDB");
                 $manager = new Manager($uri);
                 self::$link =$manager;
@@ -29,7 +28,12 @@ class Mongodb
     {
         $query = new Query($filer,$option);
         $mongo = self::getMongoDB();
-        $data = $mongo -> executeQuery($collTabname,$query);
+        $data = $mongo -> executeQuery("mxmanage.anhui",$query);
+//        dd($data);die;
+        foreach ($data as $item){
+            dd($item);
+        }
+        die;
         return $data->toArray();
     }
 

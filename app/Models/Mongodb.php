@@ -32,4 +32,64 @@ class Mongodb
         $data = $mongo -> executeQuery($collTabname,$query);
         return $data->toArray();
     }
+
+    /**
+     * @param string $name
+     * @return mixed
+     * 所有表名
+     */
+    public static function getTableName($name=''){
+        $table=[
+            "anhui",
+            "aomen",
+            "beijing",
+            "chongqing",
+            "cn1",
+            "cn2",
+            "cn3",
+            "cn4",
+            "cn5",
+            "fujian",
+            "gansu",
+            "guangdong",
+            "guangxi",
+            "guizhou",
+            "hainan",
+            "hongkang",
+            "hubei",
+            "hunan",
+            "jiangsu",
+            "jiangxi",
+            "jilin",
+            "liaoning",
+            "mxmanage_stopnum",
+            "neimenggu",
+            "ningxia",
+            "other",
+            "qinghai",
+            "shandong",
+            "shanghai",
+            "shanxi",
+            "shanxi2",
+            "sichuan",
+            "taiwan",
+            "tianjin",
+            "xinjiang",
+            "xizang",
+            "yunnan",
+            "zhejiang"
+        ];
+        if(!empty($name)){
+            // 是否到最后
+            if(end($table)==$name){
+                die("循环完毕");
+                //是否在数组中
+            }else if(in_array($name,$table)){
+                $index=array_search($name,$table);
+                return $table[$index+1];
+            }
+        }else{
+            return $table[0];
+        }
+    }
 }

@@ -19,7 +19,12 @@ class IndexController extends Controller
      */
     public function index()
     {
-       dd(Mongodb::MQuery('mxmanage.anhui',["registrant_name"=>1]));
+        dd(Mongodb::getTableName());
+//        $filer=[];
+//        $option = [
+//            'limit' => 50,
+//        ];
+//       dd(Mongodb::MQuery('mxmanage.anhui',$filer,$option));
     }
 
     /**

@@ -18,7 +18,6 @@ class Mongodb
                 $manager = new Manager($uri);
                 self::$link =$manager;
             }
-            dump(self::$link);
             return self::$link;
         } catch (Exception $e) {
             print $e->getMessage();exit();

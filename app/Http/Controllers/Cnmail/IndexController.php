@@ -19,7 +19,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-       dd(Mongodb::MQuery('mxmanage.anhui',[]));
+       dd(Mongodb::MQuery('mxmanage.anhui',["registrant_name"=>1]));
     }
 
     /**

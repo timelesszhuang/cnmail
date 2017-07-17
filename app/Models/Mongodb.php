@@ -9,7 +9,7 @@ use MongoDB\Driver\Query;
 class Mongodb
 {
     public static $link=false;
-    public function getMongoDB()
+    public static function getMongoDB()
     {
         try {
             if(!self::$link){

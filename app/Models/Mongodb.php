@@ -14,10 +14,11 @@ class Mongodb
         try {
             if(!self::$link){
                 $mongo = config("mongodb");
-                $uri = "mongodb://" . $mongo["username"] . ":" . $mongo["password"] . "@" . $mongo["host"] . "/" . $mongo["authDB"];
+                $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" .env("Monhost") . "/" . env("MonauthDB");
                 $manager = new Manager($uri);
                 self::$link =$manager;
             }
+            dump(self::$link);
             return self::$link;
         } catch (Exception $e) {
             print $e->getMessage();exit();

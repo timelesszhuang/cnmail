@@ -18,8 +18,8 @@ class IndexController extends Controller
      */
     public function index()
     {
+//        dd(env('DB_HOST'));die;
 //        dd(config("mongodb"));
-        new Mongodb();
     }
 
     /**

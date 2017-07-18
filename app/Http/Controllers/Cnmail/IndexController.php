@@ -39,6 +39,11 @@ class IndexController extends Controller
         }
     }
 
+    /**
+     * 传递数据给遍历函数并返回单条数据进行处理
+     * @param $tableName
+     * @param $sendNumber
+     */
     public function run($tableName, $sendNumber)
     {
         $options=[
@@ -47,12 +52,12 @@ class IndexController extends Controller
         ];
         $obData=Mongodb::MQuery("mxmanage.".$tableName,[],$options);
         foreach($this->mapData($obData) as $item){
-
-
+                $obj=$item();
+                $this->makeFile($tableName,$sendNumber,$obj);
         }
     }
 
-    public function makeFile($tableName)
+    public function makeFile($tableName,$sendNumber,$obj)
     {
 
     }
@@ -66,7 +71,7 @@ class IndexController extends Controller
     {
         foreach($data as $item){
             yield function () use($item){
-                 return $item;
+                return $item;
             };
         }
     }

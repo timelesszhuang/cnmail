@@ -29,7 +29,6 @@ class Mongodb
         $query = new Query($filer,$option);
         $mongo = self::getMongoDB();
         $data = $mongo -> executeQuery("mxmanage.anhui",$query);
-//        dd($data);die;
         foreach ($data as $item){
             dd($item);
         }

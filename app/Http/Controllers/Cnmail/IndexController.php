@@ -12,7 +12,9 @@ use MongoDB\Driver\Query;
 
 class IndexController extends Controller
 {
-
+    /**
+     *获取表
+     */
     public function index()
     {   //获取文件的路径
         $path = base_path('views/num.txt');

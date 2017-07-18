@@ -19,7 +19,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-       dd(Mongodb::MQuery('mxmanage.anhui',["contact_email"=>"1546137919@qq.com"]));
+       dd(Mongodb::MQuery('mxmanage',[]));
     }
 
     /**

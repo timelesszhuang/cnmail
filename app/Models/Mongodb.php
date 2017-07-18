@@ -20,12 +20,10 @@ class Mongodb
     public static function getMongoDB()
     {
         try {
-            if(!self::$link){
                 $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" .env("Monhost") . "/" . env("MonauthDB");
                 $manager = new Manager($uri);
                 self::$link =$manager;
-            }
-            return self::$link;
+                return self::$link;
         } catch (Exception $e) {
             print $e->getMessage();exit();
         }
@@ -42,7 +40,7 @@ class Mongodb
     {
         $query = new Query($filer,$option);
         $mongo = self::getMongoDB();
-        $data = $mongo -> executeQuery("mxmanage.anhui",$query);
+        $data = $mongo -> executeQuery("mxmanage.anhui",$query)->toArray();
         return $data;
     }
 

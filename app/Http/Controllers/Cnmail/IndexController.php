@@ -68,10 +68,7 @@ class IndexController extends Controller
      */
     public function run()
     {
-        $options = [
-            "skip" => $this->sendnum,
-            "limit" => 500
-        ];
+
         $manager = Mongodb::getMongoDB();
         $command = new Command([
             "count" => $this->tableName
@@ -79,7 +76,6 @@ class IndexController extends Controller
         $count = $manager->executeCommand('mxmanage', $command);
         $num = $count->toArray()[0]->n;
         while (1) {
-            file_put_contents("bug.txt", time() . "\r\n", FILE_APPEND);
             if ($this->sendnum >= $num) {
                 $this->tableName = Mongodb::getTableName($this->tableName);
                 $this->sendnum = 0;
@@ -87,19 +83,22 @@ class IndexController extends Controller
             if (!is_dir($this->tableName)) {
                 mkdir($this->tableName);
             }
+            $options = [
+                "skip" => $this->sendnum,
+                "limit" => 500
+            ];
             $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" . env("Monhost") . "/" . env("MonauthDB");
             $manager = new Manager($uri);
             $query = new Query([], $options);
             $obData = $manager->executeQuery("mxmanage." . $this->tableName, $query);
             foreach ($this->mapData($obData) as $key => $item) {
                 $obj = $item();
-                file_put_contents("obj.txt",print_r($obj,true),FILE_APPEND);
                 $array=(array)$obj;
-                file_put_contents("data.txt", print_r($array, true), FILE_APPEND);
                 $this->makeFile($array);
             }
+            $this->sendnum+=500;
+            file_put_contents("num.txt",$this->tableName.":".$this->sendnum);
         }
-
     }
 
     /**
@@ -111,14 +110,12 @@ class IndexController extends Controller
     {
         $content = view('index', compact('obj'))->__toString();
         $path = $this->tableName . "/" . $this->tableName . $obj["id"] . ".html";
+        //写文件
         file_put_contents($path, $content);
-        ++$this->sendnum;
-        file_put_contents('1.txt', $this->sendnum . "\r\n", FILE_APPEND);
-        file_put_contents('num.txt', $this->tableName . ":" . $this->sendnum);
     }
 
     /**
-     * 遍历返回数据
+     * 遍历返回Mongodb数据
      * @param $data
      * @return \Generator
      */

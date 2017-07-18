@@ -2,13 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use MongoDB\Driver\Manager;
 use MongoDB\Driver\Query;
 
 class Mongodb
 {
+    /**
+     * 资源实例
+     * @var bool
+     */
     public static $link=false;
+
+    /**
+     * 获取查询资源
+     * @return bool|Manager
+     */
     public static function getMongoDB()
     {
         try {
@@ -23,7 +31,13 @@ class Mongodb
         }
     }
 
-    //数据库查询
+    /**
+     * 数据库查询
+     * @param $collTabname
+     * @param $filer
+     * @param array $option
+     * @return \MongoDB\Driver\Cursor
+     */
     public static function  MQuery($collTabname,$filer,$option=[])
     {
         $query = new Query($filer,$option);

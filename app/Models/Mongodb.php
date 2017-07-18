@@ -31,17 +31,8 @@ class Mongodb
     {
         $query = new Query($filer,$option);
         $mongo = self::getMongoDB();
-<<<<<<< HEAD
-        $data = $mongo -> executeQuery("mxmanage",$query);
-//        dd($data);die;
-=======
         $data = $mongo -> executeQuery("mxmanage.anhui",$query);
->>>>>>> 444767d3778f45eea9608daf6572ff4439cff00b
-        foreach ($data as $item){
-            dd($item);
-        }
-        die;
-        return $data->toArray();
+        return $data;
     }
 
     /**

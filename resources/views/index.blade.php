@@ -9,15 +9,6 @@
     @if(isset($obj['id']))
     {{$obj['id']}}
     @endif
-    {{$obj['registrant_name']}}
-    {{$obj['registrant_telephone']}}
-    {{$obj['registrant_city']}}
-    {{$obj['domain_name']}}
-    {{$obj['registrant_street']}}
-    {{$obj['registrant_state']}}
-    {{$obj['contact_email']}}
-
-
 
 </div>
 </body>

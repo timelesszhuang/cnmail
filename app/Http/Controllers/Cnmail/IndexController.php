@@ -31,7 +31,7 @@ class IndexController extends Controller
             }
         }
 //        ignore_user_abort(0);
-        set_time_limit(0);
+//        set_time_limit(0);
         //获取文件的路径
         $path = 'num.txt';
         //判断有没有这个文件
@@ -72,28 +72,30 @@ class IndexController extends Controller
             "skip" => $this->sendnum,
             "limit" => 500
         ];
-        $manager=Mongodb::getMongoDB();
-        $command=new Command([
-            "count"=>$this->tableName
+        $manager = Mongodb::getMongoDB();
+        $command = new Command([
+            "count" => $this->tableName
         ]);
-        $count =$manager->executeCommand('mxmanage',$command);
+        $count = $manager->executeCommand('mxmanage', $command);
         $num = $count->toArray()[0]->n;
         while (1) {
-            file_put_contents("bug.txt",time());
-            if($this->sendnum>=$num){
+            file_put_contents("bug.txt", time() . "\r\n", FILE_APPEND);
+            if ($this->sendnum >= $num) {
                 $this->tableName = Mongodb::getTableName($this->tableName);
                 $this->sendnum = 0;
-             }
+            }
             if (!is_dir($this->tableName)) {
                 mkdir($this->tableName);
             }
-            $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" .env("Monhost") . "/" . env("MonauthDB");
+            $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" . env("Monhost") . "/" . env("MonauthDB");
             $manager = new Manager($uri);
-            $query=new Query([],$options);
-            $obData=$manager->executeQuery("mxmanage.".$this->tableName,$query);
-            foreach ($this->mapData($obData) as $key=>$item) {
+            $query = new Query([], $options);
+            $obData = $manager->executeQuery("mxmanage." . $this->tableName, $query);
+            foreach ($this->mapData($obData) as $key => $item) {
                 $obj = $item();
-                $array = json_decode(json_encode($obj), true);
+                file_put_contents("obj.txt",print_r($obj,true),FILE_APPEND);
+                $array=(array)$obj;
+                file_put_contents("data.txt", print_r($array, true), FILE_APPEND);
                 $this->makeFile($array);
             }
         }
@@ -109,13 +111,10 @@ class IndexController extends Controller
     {
         $content = view('index', compact('obj'))->__toString();
         $path = $this->tableName . "/" . $this->tableName . $obj["id"] . ".html";
-        $isWrited = file_put_contents($path, $content);
-        if ($isWrited) {
-            $this->sendnum++;
-            file_put_contents('1.txt',$this->sendnum."\r\n");
-            file_put_contents('num.txt',$this->tableName.":".$this->sendnum);
-        }
-
+        file_put_contents($path, $content);
+        ++$this->sendnum;
+        file_put_contents('1.txt', $this->sendnum . "\r\n", FILE_APPEND);
+        file_put_contents('num.txt', $this->tableName . ":" . $this->sendnum);
     }
 
     /**

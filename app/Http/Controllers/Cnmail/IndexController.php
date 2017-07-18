@@ -19,7 +19,11 @@ class IndexController extends Controller
      */
     public function index()
     {
-       dd(Mongodb::MQuery('mxmanage',[]));
+//        $filer=[];
+//        $option = [
+//            'limit' => 50,
+//        ];
+//       dd(Mongodb::MQuery('mxmanage.anhui',$filer,$option));
     }
 
     /**

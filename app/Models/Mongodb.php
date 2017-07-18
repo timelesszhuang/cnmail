@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use MongoDB\Driver\Command;
 use MongoDB\Driver\Manager;
 use MongoDB\Driver\Query;
 
@@ -16,8 +15,6 @@ class Mongodb
             if(!self::$link){
                 $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" .env("Monhost") . "/" . env("MonauthDB");
                 $manager = new Manager($uri);
-                $command = new Command([]);
-                dd($manager->executeCommand("mxmanage",$command));die;
                 self::$link =$manager;
             }
             return self::$link;

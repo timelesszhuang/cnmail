@@ -157,6 +157,7 @@ class IndexController extends Controller
         //一共有多少分页
         $page_count=intval(ceil($num/$limit));
 
+        //获取分页数据
         $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" . env("Monhost") . "/" . env("MonauthDB");
         $manager = new Manager($uri);
         $query = new Query([], $options);

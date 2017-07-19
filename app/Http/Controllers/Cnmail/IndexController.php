@@ -68,18 +68,20 @@ class IndexController extends Controller
      */
     public function run()
     {
-
-        $manager = Mongodb::getMongoDB();
-        $command = new Command([
-            "count" => $this->tableName
-        ]);
-        $count = $manager->executeCommand('mxmanage', $command);
-        $num = $count->toArray()[0]->n;
         while (1) {
+//            计算count总数
+            $manager = Mongodb::getMongoDB();
+            $command = new Command([
+                "count" => $this->tableName
+            ]);
+            $count = $manager->executeCommand('mxmanage', $command);
+            $num = $count->toArray()[0]->n;
+//            判断总数
             if ($this->sendnum >= $num) {
                 $this->tableName = Mongodb::getTableName($this->tableName);
                 $this->sendnum = 0;
             }
+//            判断目录
             if (!is_dir($this->tableName)) {
                 mkdir($this->tableName);
             }
@@ -87,6 +89,7 @@ class IndexController extends Controller
                 "skip" => $this->sendnum,
                 "limit" => 500
             ];
+//            取数据 500条一次
             $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" . env("Monhost") . "/" . env("MonauthDB");
             $manager = new Manager($uri);
             $query = new Query([], $options);
@@ -96,6 +99,7 @@ class IndexController extends Controller
                 $array=(array)$obj;
                 $this->makeFile($array);
             }
+//            每500条生成一次标记
             $this->sendnum+=500;
             file_put_contents("num.txt",$this->tableName.":".$this->sendnum);
         }
@@ -129,8 +133,39 @@ class IndexController extends Controller
         }
     }
 
-    public function list($tableName)
+    /**
+     * 分页效果
+     * @param $tableName
+     * @param int $page
+     * @param int $limit
+     */
+    public function getlist($tableName,$page=1,$limit=10)
     {
+        //设置分页
+        $skip=($page-1)*$limit;
+        $options = [
+            "skip" => intval($skip),
+            "limit" => intval($limit)
+        ];
+        //计算总数
+        $manager = Mongodb::getMongoDB();
+        $command = new Command([
+            "count" => $tableName
+        ]);
+        $count = $manager->executeCommand('mxmanage', $command);
+        $num = $count->toArray()[0]->n;
+        //一共有多少分页
+        $page_count=intval(ceil($num/$limit));
 
+        $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" . env("Monhost") . "/" . env("MonauthDB");
+        $manager = new Manager($uri);
+        $query = new Query([], $options);
+        $obData = $manager->executeQuery("mxmanage." .$tableName, $query);
+        $arr=[];
+        foreach ($this->mapData($obData) as $key => $item) {
+            $obj = $item();
+            $arr[]=(array)$obj;
+        }
+        dd($arr);
     }
 }

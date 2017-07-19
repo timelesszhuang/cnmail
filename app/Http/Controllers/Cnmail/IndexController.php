@@ -16,6 +16,7 @@ class IndexController extends Controller
 {
     private $sendnum = 0;
     private $tableName = "";
+
     /**
      *获取表
      */
@@ -25,7 +26,7 @@ class IndexController extends Controller
         if (file_exists("num.txt")) {
             $modify_time = filemtime("num.txt");
             $change_time = time() - $modify_time;
-            if ($change_time < 1000) {
+            if ($change_time < 10) {
                 exit;
             }
         }
@@ -85,7 +86,7 @@ class IndexController extends Controller
                 mkdir($this->tableName);
             }
             $options = [
-                "skip" => $this->sendnum,
+                "skip" => intval($this->sendnum),
                 "limit" => 500
             ];
 //            取数据 500条一次
@@ -95,12 +96,15 @@ class IndexController extends Controller
             $obData = $manager->executeQuery("mxmanage." . $this->tableName, $query);
             foreach ($this->mapData($obData) as $key => $item) {
                 $obj = $item();
-                $array=(array)$obj;
+                $array = (array)$obj;
                 $this->makeFile($array);
             }
 //            每500条生成一次标记
-            $this->sendnum+=500;
-            file_put_contents("num.txt",$this->tableName.":".$this->sendnum);
+            $this->sendnum += 500;
+            file_put_contents("num.txt", $this->tableName . ":" . $this->sendnum);
+//            生成对应表的记录
+            file_put_contents($this->tableName . '.txt', $this->sendnum);
+            // 一次生成500条
             break;
         }
     }
@@ -139,45 +143,49 @@ class IndexController extends Controller
      * @param int $page
      * @param int $limit
      */
-    public function getlist($tableName,$page=1)
+    public function getlist($tableName, $page = 1)
     {
-         $domain="http://local.laravel.com/index.php/";
-         $limit = 10;
+        if (!file_exists($tableName . ".txt")) {
+            exit('当前表不存在');
+        }
+        // txt中存储的生成数量
+        $loopNum = file_get_contents("$tableName.txt");
+        if (intval($loopNum) < 1) {
+            exit('没有数据');
+        }
+        $domain = "http://local.laravel.com/index.php/";
+        $limit = 20;
+        // 分页总数
+        $pageCount=intval(ceil($loopNum/$limit));
+        if($page>$pageCount){
+            exit('没有数据');
+        }
         //设置分页
-        $skip=($page-1)*$limit;
+        $skip = ($page - 1) * $limit;
         $options = [
             "skip" => intval($skip),
             "limit" => intval($limit)
         ];
-        //计算总数
-        $manager = Mongodb::getMongoDB();
-        $command = new Command([
-            "count" => $tableName
-        ]);
-        $count = $manager->executeCommand('mxmanage', $command);
-        $num = $count->toArray()[0]->n;
-        //一共有多少分页
-        $page_count=intval(ceil($num/$limit));
 
         //获取分页数据
         $uri = "mongodb://" . env("Monusername") . ":" . env("Monpassword") . "@" . env("Monhost") . "/" . env("MonauthDB");
         $manager = new Manager($uri);
         $query = new Query([], $options);
-        $obData = $manager->executeQuery("mxmanage." .$tableName, $query);
-        $data=[];
+        $obData = $manager->executeQuery("mxmanage." . $tableName, $query);
+        $data = [];
         foreach ($this->mapData($obData) as $key => $item) {
             $obj = $item();
-            $data[]=(array)$obj;
+            $data[] = (array)$obj;
         }
         //上一页 和 下一页
-        $pre_page='';
-        $next_page="";
-        if($page>1){
-            $pre_page=$domain."list/$tableName/".($page-1).".html";
+        $pre_page = '';
+        $next_page = '';
+        if ($page > 1) {
+            $pre_page = $domain . "list/$tableName/" . ($page - 1) . ".html";
         }
-        if($page<$page_count){
-            $next_page=$domain."list/$tableName/".($page+1).".html";
+        if ($page < $pageCount) {
+            $next_page = $domain . "list/$tableName/" . ($page + 1) . ".html";
         }
-       return view("list",compact('data','tableName','domain','pre_page','next_page'));
+        return view("list", compact('data', 'tableName', 'domain', 'pre_page', 'next_page'));
     }
 }

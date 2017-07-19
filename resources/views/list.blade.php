@@ -1,7 +1,20 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: qiangbi
- * Date: 17-7-19
- * Time: 上午10:31
- */
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Laravel</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+    @foreach($data as $item)
+        <a href="{{$domain.$tableName."/".$tableName.$item['id']}}.html">1111</a>
+    @endforeach
+
+</div>
+<div>
+    <p><a href="{{$pre_page}}">上一页</a></p>
+    <p><a href="{{$next_page}}">下一页</a></p>
+</div>
+</body>
+
+</html>

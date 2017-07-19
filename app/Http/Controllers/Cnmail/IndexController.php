@@ -26,12 +26,12 @@ class IndexController extends Controller
         if (file_exists("num.txt")) {
             $modify_time = filemtime("num.txt");
             $change_time = time() - $modify_time;
-            if ($change_time < 100) {
+            if ($change_time < 1000) {
                 exit;
             }
         }
-//        ignore_user_abort(0);
-//        set_time_limit(0);
+        ignore_user_abort(0);
+        set_time_limit(0);
         //获取文件的路径
         $path = 'num.txt';
         //判断有没有这个文件
@@ -102,6 +102,7 @@ class IndexController extends Controller
     }
 
     /**
+     * 生成静态文件
      * @param $tableName
      * @param $sendNumber
      * @param $obj
@@ -126,5 +127,10 @@ class IndexController extends Controller
                 return $item;
             };
         }
+    }
+
+    public function list($tableName)
+    {
+
     }
 }

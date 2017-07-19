@@ -16,7 +16,6 @@ class IndexController extends Controller
 {
     private $sendnum = 0;
     private $tableName = "";
-
     /**
      *获取表
      */
@@ -141,6 +140,7 @@ class IndexController extends Controller
      */
     public function getlist($tableName,$page=1,$limit=10)
     {
+         $domain="http://local.laravel.com/";
         //设置分页
         $skip=($page-1)*$limit;
         $options = [
@@ -162,11 +162,20 @@ class IndexController extends Controller
         $manager = new Manager($uri);
         $query = new Query([], $options);
         $obData = $manager->executeQuery("mxmanage." .$tableName, $query);
-        $arr=[];
+        $data=[];
         foreach ($this->mapData($obData) as $key => $item) {
             $obj = $item();
-            $arr[]=(array)$obj;
+            $data[]=(array)$obj;
         }
-        dd($arr);
+        //上一页 和 下一页
+        $pre_page='';
+        $next_page="";
+        if($page>1){
+            $pre_page=$domain."list/$tableName/1/".intval($limit);
+        }
+        if($page<$page_count){
+            $next_page=$domain."list/$tableName/".($page+1)."/".intval($limit);
+        }
+        $this->view("list",compact('data','pre_page','next_page'));
     }
 }

@@ -7,7 +7,7 @@
 <body>
 <div class="container">
     @foreach($data as $item)
-        <a href="{{$domain.$tableName."/".$tableName.$item['id']}}.html">1111</a>
+        <a href="{{$domain.$tableName."/".$tableName.$item['id']}}.html">{{$item['domain_name']}}}</a>
     @endforeach
 
 </div>

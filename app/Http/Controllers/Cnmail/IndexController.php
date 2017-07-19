@@ -101,6 +101,7 @@ class IndexController extends Controller
 //            每500条生成一次标记
             $this->sendnum+=500;
             file_put_contents("num.txt",$this->tableName.":".$this->sendnum);
+            break;
         }
     }
 

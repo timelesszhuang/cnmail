@@ -138,9 +138,10 @@ class IndexController extends Controller
      * @param int $page
      * @param int $limit
      */
-    public function getlist($tableName,$page=1,$limit=10)
+    public function getlist($tableName,$page=1)
     {
-         $domain="http://local.laravel.com/";
+         $domain="http://local.laravel.com/index.php/";
+         $limit = 10;
         //设置分页
         $skip=($page-1)*$limit;
         $options = [
@@ -171,11 +172,11 @@ class IndexController extends Controller
         $pre_page='';
         $next_page="";
         if($page>1){
-            $pre_page=$domain."list/$tableName/1/".intval($limit);
+            $pre_page=$domain."list/$tableName/".($page-1).".html";
         }
         if($page<$page_count){
-            $next_page=$domain."list/$tableName/".($page+1)."/".intval($limit);
+            $next_page=$domain."list/$tableName/".($page+1).".html";
         }
-        $this->view("list",compact('data','pre_page','next_page'));
+       return view("list",compact('data','pre_page','next_page'));
     }
 }

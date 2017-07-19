@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('mongo','Cnmail\IndexController@index');
-Route::get('list/{tableName}/{page?}/{limit?}','Cnmail\IndexController@getlist');
+Route::get('list/{tableName}/{page?}.html','Cnmail\IndexController@getlist');

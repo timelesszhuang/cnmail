@@ -177,6 +177,6 @@ class IndexController extends Controller
         if($page<$page_count){
             $next_page=$domain."list/$tableName/".($page+1).".html";
         }
-       return view("list",compact('data','pre_page','next_page'));
+       return view("list",compact('data','tableName','pre_page','next_page'));
     }
 }

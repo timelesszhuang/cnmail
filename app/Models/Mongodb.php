@@ -73,7 +73,6 @@ class Mongodb
             "jiangxi",
             "jilin",
             "liaoning",
-            "mxmanage_stopnum",
             "neimenggu",
             "ningxia",
             "other",

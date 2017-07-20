@@ -154,6 +154,9 @@ class IndexController extends Controller
             exit('没有数据');
         }
         $domain = env("DB_DOMAIN");
+        if($domain){
+            exit("请配置域名");
+        }
         $limit = 20;
         // 分页总数
         $pageCount=intval(ceil($loopNum/$limit));

@@ -51,9 +51,9 @@ class Mongodb
      */
     public static function getTableName($name=''){
         $table=[
+            "beijing",
             "anhui",
             "aomen",
-            "beijing",
             "chongqing",
             "cn1",
             "cn2",

@@ -157,7 +157,7 @@ class IndexController extends Controller
         if(!$domain){
             exit("place make domain");
         }
-        $limit = 20;
+        $limit = 50;
         // 分页总数
         $pageCount=intval(ceil($loopNum/$limit));
         if($page>$pageCount){

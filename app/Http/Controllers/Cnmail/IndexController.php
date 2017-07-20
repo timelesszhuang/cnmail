@@ -154,7 +154,7 @@ class IndexController extends Controller
             exit('no datas');
         }
         $domain = env("DB_DOMAIN");
-        if($domain){
+        if(!$domain){
             exit("place make domain");
         }
         $limit = 20;

@@ -96,18 +96,18 @@
         <tr>
             @if(isset($obj['mx']))
             <td>
-                @if(isset($obj['mx']['mx']))
-                {{$obj['mx']['mx']}}
+                @if(isset($obj['mx']->mx))
+                {{$obj['mx']->mx}}
                 @endif
             </td>
             <td>
-                @if(isset($obj['mx']['brand_name']))
-                    {{$obj['mx']['brand_name']}}
+                @if(isset($obj['mx']->brand_name))
+                    {{$obj['mx']->brand_name}}
                 @endif
                </td>
             <td>
-                @if(isset($obj['mx']['priority']))
-                    {{$obj['mx']['priority']}}
+                @if(isset($obj['mx']->priority))
+                    {{$obj['mx']->priority}}
                 @endif
             </td>
             @endif

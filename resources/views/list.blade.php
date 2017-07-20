@@ -19,68 +19,25 @@
 <div class="yxwz">
     <div class="wz_title">
         <a href="">
-            <span class="ppw">邮箱文章</span><span class="gd">更多 &nbsp;>>&nbsp;</span><div class="clearfix"></div>
+            <span class="ppw">邮箱文章</span><span class="gd"></span><div class="clearfix"></div>
         </a>
     </div>
     <div class="wz_box">
         <ul class="wz">
-            <li><a href="">1.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">2.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">3.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">4.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">5.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">6.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">7.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">8.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">9.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">10.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">11.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">12.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">13.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">14.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">15.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">16.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">17.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">18.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">19.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">20.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">21.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">22.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">23.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">24.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">25.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">26.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">27.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">28.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">29.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">30.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">31.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">32.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">33.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">34.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">35.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">36.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">37.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">38.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">39.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">40.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">41.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">42.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">43.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">44.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">45.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">46.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">47.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">48.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">49.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
-            <li><a href="">50.谁才是你文件存储的最佳选择?</a><span class="sj">2016-12-29</span></li>
+            @foreach($data as $item)
+                <li><a href="{{$domain.$tableName."/".$tableName.$item['id']}}.html">{{$item['domain_name']}}</a><span class="sj"><?php echo date("Y-m-d");?></span></li>
+            @endforeach
         </ul>
-        <ul class="pagination">
-            <li class="disabled"><span>«</span></li>
-            <li class="active"><span>1</span></li>
-            <li><a href="/questionlist/3.html?page=2">2</a></li>
-            <li><a href="/questionlist/3.html?page=2">»</a></li>
-        </ul>
+        <p>
+            @if(isset($pre_page))
+                <a href="{{$pre_page}}">上一页</a>
+            @endif
+        </p>
+        <p>
+            @if(isset($next_page))
+                <a href="{{$next_page}}">下一页</a>
+            @endif
+        </p>
     </div>
 </div>
 
@@ -108,7 +65,7 @@
 <div class="youqing">
     <div class="wz_title">
         <a href="">
-            <span class="ppw">友情链接</span><span class="gd">更多 &nbsp;>>&nbsp;</span>
+            <span class="ppw">友情链接</span><span class="gd"></span>
         </a>
     </div>
     <ul>
@@ -140,45 +97,4 @@
     </div>
 </div>
 </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-</head>
-<body>
-<div class="container">
-    @foreach($data as $item)
-        <a href="{{$domain.$tableName."/".$tableName.$item['id']}}.html">{{$item['domain_name']}}}</a>
-    @endforeach
-
-</div>
-<div>
-
-    <p>
-        @if(isset($pre_page))
-            <a href="{{$pre_page}}">上一页</a>
-        @endif
-    </p>
-    <p>
-        @if(isset($next_page))
-        <a href="{{$next_page}}">下一页</a>
-        @endif
-    </p>
-</div>
-</body>
-
 </html>

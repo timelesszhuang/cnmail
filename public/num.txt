@@ -1,1 +1,1 @@
-beijing:86500
+aomen:500

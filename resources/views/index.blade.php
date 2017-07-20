@@ -3,7 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>文章详情</title>
+    <title>
+        企业邮箱哪家好_企业邮箱怎么注册_企业邮箱怎么申请-
+        @if(isset($obj['domain_name']))
+            {{$obj['domain_name']}}
+        @endif
+    </title>
+    <meta content="企业邮箱哪家好,企业邮箱怎么注册,企业邮箱怎么申请,如何申请企业邮箱,企业邮箱注册申请" name="description">
+    <meta content="网易企业邮箱,20年运营经验,安全稳定,高速收发,超强反垃圾!300人售后团队24小时在线服务,支持免费试用,自助开通,买2年送2年" name="description">
     <script src="../templatestatic/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="../templatestatic/jquery.SuperSlide.js"></script>
     <link href="../templatestatic/style.css" rel="stylesheet" type="text/css"/>

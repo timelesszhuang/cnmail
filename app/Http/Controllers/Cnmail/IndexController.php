@@ -153,7 +153,7 @@ class IndexController extends Controller
         if (intval($loopNum) < 1) {
             exit('没有数据');
         }
-        $domain = "http://local.laravel.com/index.php/";
+        $domain = env("DB_DOMAIN");
         $limit = 20;
         // 分页总数
         $pageCount=intval(ceil($loopNum/$limit));

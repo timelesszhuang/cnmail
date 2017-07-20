@@ -94,6 +94,7 @@
             <td>优先级</td>
         </tr>
         <tr>
+            @if(isset($obj['mx']))
             <td>
                 @if(isset($obj['mx']['mx']))
                 {{$obj['mx']['mx']}}
@@ -109,6 +110,7 @@
                     {{$obj['mx']['priority']}}
                 @endif
             </td>
+            @endif
         </tr>
     </table>
 </div>

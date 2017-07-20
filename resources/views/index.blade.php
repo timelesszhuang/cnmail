@@ -29,7 +29,7 @@
             <td class="tb-title">域名</td>
             <td>
                 @if(isset($obj['domain_name']))
-                    {{$obj['domain_name']}}
+                    <a href="{{$obj['domain_name']}}" target="_blank">{{$obj['domain_name']}}</a>
                 @endif
             </td>
         </tr>

@@ -94,9 +94,21 @@
             <td>优先级</td>
         </tr>
         <tr>
-            <td>{{$obj['mx']['mx']}}</td>
-            <td>{{$obj['mx']['brand_name']}}</td>
-            <td>{{$obj['mx']['priority']}}</td>
+            <td>
+                @if(isset($obj['mx']['mx']))
+                {{$obj['mx']['mx']}}
+                @endif
+            </td>
+            <td>
+                @if(isset($obj['mx']['brand_name']))
+                    {{$obj['mx']['brand_name']}}
+                @endif
+               </td>
+            <td>
+                @if(isset($obj['mx']['priority']))
+                    {{$obj['mx']['priority']}}
+                @endif
+            </td>
         </tr>
     </table>
 </div>
@@ -123,18 +135,12 @@
         <div>
             <label>联系邮箱：</label>
             <input type="text" name="email" id="email" placeholder="请输入联系邮箱">
-            <input type="hidden" value="<?php echo $ip; ?>" name="ip"/>
-            <input type="hidden" value="<?php echo $query_string; ?>" name="query_string"/>
             <!--这个参数是从搜索引擎中来-->
-            <input type="hidden" value="<?php echo $key_word; ?>" name="key_word"/>
             <!--搜索引擎-->
-            <input type="hidden" value="<?php echo $search_engine; ?>" name="search_engine"/>
             <!--搜索引擎传递过来的地域信息-->
-            <input type="hidden" value="<?php echo $s_val; ?>" name="s_val"/>
             <!--位置信息 比如是qiangbi  还是胜途的区分-->
-            <input type="hidden" value="<?php echo $pos; ?>" name="pos"/>
+            <input type="hidden" value="qiangbi" name="pos"/>
             <!--表示是谁的客户 表示salesmen 中的 职员的id-->
-            <input type="hidden" value="<?php echo $s?>" name="s">
             <div class="clearfix"></div>
         </div>
         <input class="btn" name="submit_bottom" type="button" id="submit_bottom" value="马上参加">

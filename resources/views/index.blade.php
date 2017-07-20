@@ -1,7 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>文章详情</title>
     <script src="../templatestatic/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="../templatestatic/jquery.SuperSlide.js"></script>
@@ -19,35 +20,67 @@
     <table>
         <tr>
             <td class="tb-title">域名</td>
-            <td>ghj</td>
+            <td>
+                @if(isset($obj['domain_name']))
+                    {{$obj['domain_name']}}
+                @endif
+            </td>
         </tr>
         <tr>
             <td class="tb-title">注册人</td>
-            <td>zcv</td>
+            <td>
+                @if(isset($obj['registrant_name']))
+                    {{$obj['registrant_name']}}
+                @endif
+            </td>
         </tr>
         <tr>
             <td class="tb-title">注册时间</td>
-            <td>bnm</td>
+            <td>
+                @if(isset($obj['createdate']))
+                    {{date("Y-m-d H:i:s",$obj['createdate'])}}
+                @endif
+            </td>
         </tr>
         <tr>
             <td class="tb-title">过期时间</td>
-            <td>ghj</td>
+            <td>
+                @if(isset($obj['expiresdate']))
+                    {{date("Y-m-d H:i:s",$obj['expiresdate'])}}
+                @endif
+            </td>
         </tr>
         <tr>
             <td class="tb-title">注册城市</td>
-            <td>bnm</td>
+            <td>
+                @if(isset($obj['registrant_city']))
+                    {{$obj['registrant_city']}}
+                @endif
+            </td>
         </tr>
         <tr>
             <td class="tb-title">注册邮箱</td>
-            <td>ghj</td>
+            <td>
+                @if(isset($obj['contact_email']))
+                    {{$obj['contact_email']}}
+                @endif
+            </td>
         </tr>
         <tr>
             <td class="tb-title">网站标题</td>
-            <td>bnm</td>
+            <td>
+                @if(isset($obj['wwwtitle']))
+                    {{$obj['wwwtitle']}}
+                @endif
+            </td>
         </tr>
         <tr>
             <td class="tb-title">邮箱标题</td>
-            <td>bnm</td>
+            <td>
+                @if(isset($obj['contact_email']))
+                    {{$obj['contact_email']}}
+                @endif
+            </td>
         </tr>
     </table>
 </div>
@@ -61,14 +94,14 @@
             <td>优先级</td>
         </tr>
         <tr>
-            <td>ghj</td>
-            <td>zcv</td>
-            <td>bnm</td>
+            <td>{{$obj['mx']['mx']}}</td>
+            <td>{{$obj['mx']['brand_name']}}</td>
+            <td>{{$obj['mx']['priority']}}</td>
         </tr>
     </table>
 </div>
 
-<form id="theform_bottom" name="theform_bottom"  >
+<form id="theform_bottom" name="theform_bottom">
     <input type="hidden" name="shuaidan_type" value="1">
     <div class="dy03_biaodan">
         <h1>亲爱的用户，请填写以下信息参加活动</h1>
@@ -79,19 +112,19 @@
         </div>
         <div>
             <label>联系电话：</label>
-            <input type="text" name="phone" id="userphoneSales"placeholder="请输入联系电话">
+            <input type="text" name="phone" id="userphoneSales" placeholder="请输入联系电话">
             <div class="clearfix"></div>
         </div>
         <div>
             <label>联系人：</label>
-            <input type="text"name="name" id="userNameSales"placeholder="请输入联系人">
+            <input type="text" name="name" id="userNameSales" placeholder="请输入联系人">
             <div class="clearfix"></div>
         </div>
         <div>
             <label>联系邮箱：</label>
-            <input type="text"name="email" id="email"placeholder="请输入联系邮箱">
-            <input type="hidden"  value="<?php echo $ip; ?>" name="ip"/>
-            <input type="hidden"  value="<?php echo $query_string; ?>" name="query_string"/>
+            <input type="text" name="email" id="email" placeholder="请输入联系邮箱">
+            <input type="hidden" value="<?php echo $ip; ?>" name="ip"/>
+            <input type="hidden" value="<?php echo $query_string; ?>" name="query_string"/>
             <!--这个参数是从搜索引擎中来-->
             <input type="hidden" value="<?php echo $key_word; ?>" name="key_word"/>
             <!--搜索引擎-->
@@ -108,14 +141,14 @@
     </div>
 </form>
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         $('#submit_bottom').click(function () {
             var data = $('#theform_bottom').serialize();
             var url = 'http://salesman.cc/index.php/Shuaidan_ceshi/PublicTry/index';
-            var name=$("#userNameSales").val();
-            var phone=$("#userphoneSales").val();
-            var email=$("#email").val();
-            var company=$("#company").val();
+            var name = $("#userNameSales").val();
+            var phone = $("#userphoneSales").val();
+            var email = $("#email").val();
+            var company = $("#company").val();
             $("#theform_bottom")[0].reset();
             $.ajax({
                 type: "POST",
@@ -125,7 +158,7 @@
                 url: url,
                 data: data,
                 success: function (data) {
-                    if(data.status==20){
+                    if (data.status == 20) {
                         $("#userNameSales").val(name);
                         $("#userphoneSales").val(phone);
                         $("#email").val(email);
@@ -145,20 +178,21 @@
 <div class="pptj">
     <div class="wz_title">
         <a href="">
-            <span class="ppw">邮箱品牌推荐</span><span class="gd">更多 &nbsp;>>&nbsp;</span><div class="clearfix"></div>
+            <span class="ppw">邮箱品牌推荐</span><span class="gd">更多 &nbsp;>>&nbsp;</span>
+            <div class="clearfix"></div>
         </a>
     </div>
     <ul>
         <li><a href=""><img src="../templatestatic/l1.jpg"></a></li>
-        <li><a href=""><img src="../templatestatic/l2.jpg" /></a></li>
-        <li><a href=""><img src="../templatestatic/l3.jpg" /></a></li>
-        <li><a href=""><img src="../templatestatic/l4.jpg" /></a></li>
-        <li><a href=""><img src="../templatestatic/l5.jpg" /></a></li>
-        <li><a href=""><img src="../templatestatic/l6.jpg" /></a></li>
-        <li><a href=""><img src="../templatestatic/l7.jpg" /></a></li>
-        <li><a href=""><img src="../templatestatic/l8.jpg" /></a></li>
-        <li><a href=""><img src="../templatestatic/l7.jpg" /></a></li>
-        <li><a href=""><img src="../templatestatic/l8.jpg" /></a></li>
+        <li><a href=""><img src="../templatestatic/l2.jpg"/></a></li>
+        <li><a href=""><img src="../templatestatic/l3.jpg"/></a></li>
+        <li><a href=""><img src="../templatestatic/l4.jpg"/></a></li>
+        <li><a href=""><img src="../templatestatic/l5.jpg"/></a></li>
+        <li><a href=""><img src="../templatestatic/l6.jpg"/></a></li>
+        <li><a href=""><img src="../templatestatic/l7.jpg"/></a></li>
+        <li><a href=""><img src="../templatestatic/l8.jpg"/></a></li>
+        <li><a href=""><img src="../templatestatic/l7.jpg"/></a></li>
+        <li><a href=""><img src="../templatestatic/l8.jpg"/></a></li>
         <div class="clearfix"></div>
     </ul>
 </div>
@@ -171,36 +205,10 @@
                 © 2004-2012 北京强比科技有限公司&nbsp;&nbsp;&nbsp;&nbsp; 济南强比科技有限公司&nbsp;&nbsp;&nbsp;&nbsp; 中国企业邮箱网
             </div>
         </div>
-        <div class="er"><img src="../templatestatic/er.jpg" /></div>
+        <div class="er"><img src="../templatestatic/er.jpg"/></div>
     </div>
 </div>
 </body>
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-</head>
-<body>
-<div class="container">
-    @if(isset($obj['id']))
-    {{$obj['id']}}
-    @endif
-
-</div>
-</body>
-</html>

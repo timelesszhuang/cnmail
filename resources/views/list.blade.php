@@ -3,9 +3,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>文章列表</title>
-    <script src="templatestatic/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="templatestatic/jquery.SuperSlide.js"></script>
-    <link href="templatestatic/style.css" rel="stylesheet" type="text/css"/>
+    <script src="/templatestatic/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/templatestatic/jquery.SuperSlide.js"></script>
+    <link href="/templatestatic/style.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -48,16 +48,16 @@
         </a>
     </div>
     <ul>
-        <li><a href=""><img src="templatestatic/l1.jpg"></a></li>
-        <li><a href=""><img src="templatestatic/l2.jpg" /></a></li>
-        <li><a href=""><img src="templatestatic/l3.jpg" /></a></li>
-        <li><a href=""><img src="templatestatic/l4.jpg" /></a></li>
-        <li><a href=""><img src="templatestatic/l5.jpg" /></a></li>
-        <li><a href=""><img src="templatestatic/l6.jpg" /></a></li>
-        <li><a href=""><img src="templatestatic/l7.jpg" /></a></li>
-        <li><a href=""><img src="templatestatic/l8.jpg" /></a></li>
-        <li><a href=""><img src="templatestatic/l7.jpg" /></a></li>
-        <li><a href=""><img src="templatestatic/l8.jpg" /></a></li>
+        <li><a href=""><img src="/templatestatic/l1.jpg"></a></li>
+        <li><a href=""><img src="/templatestatic/l2.jpg" /></a></li>
+        <li><a href=""><img src="/templatestatic/l3.jpg" /></a></li>
+        <li><a href=""><img src="/templatestatic/l4.jpg" /></a></li>
+        <li><a href=""><img src="/templatestatic/l5.jpg" /></a></li>
+        <li><a href=""><img src="/templatestatic/l6.jpg" /></a></li>
+        <li><a href=""><img src="/templatestatic/l7.jpg" /></a></li>
+        <li><a href=""><img src="/templatestatic/l8.jpg" /></a></li>
+        <li><a href=""><img src="/templatestatic/l7.jpg" /></a></li>
+        <li><a href=""><img src="/templatestatic/l8.jpg" /></a></li>
         <div class="clearfix"></div>
     </ul>
 </div>
@@ -93,7 +93,7 @@
                 © 2004-2012 北京强比科技有限公司&nbsp;&nbsp;&nbsp;&nbsp; 济南强比科技有限公司&nbsp;&nbsp;&nbsp;&nbsp; 中国企业邮箱网
             </div>
         </div>
-        <div class="er"><img src="templatestatic/er.jpg" /></div>
+        <div class="er"><img src="/templatestatic/er.jpg" /></div>
     </div>
 </div>
 </body>

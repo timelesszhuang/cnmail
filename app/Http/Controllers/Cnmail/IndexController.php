@@ -146,22 +146,22 @@ class IndexController extends Controller
     public function getlist($tableName, $page = 1)
     {
         if (!file_exists($tableName . ".txt")) {
-            exit('当前表不存在');
+            exit('the table not exists');
         }
         // txt中存储的生成数量
         $loopNum = file_get_contents("$tableName.txt");
         if (intval($loopNum) < 1) {
-            exit('没有数据');
+            exit('no datas');
         }
         $domain = env("DB_DOMAIN");
         if($domain){
-            exit("请配置域名");
+            exit("place make domain");
         }
         $limit = 20;
         // 分页总数
         $pageCount=intval(ceil($loopNum/$limit));
         if($page>$pageCount){
-            exit('没有数据');
+            exit('pagenate no data');
         }
         //设置分页
         $skip = ($page - 1) * $limit;
